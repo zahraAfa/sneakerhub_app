@@ -2,17 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../../../constants/colors.dart';
 import '../../../constants/text_style.dart';
-import '../../../controllers/onboarding_controller.dart';
 
 class OnboardingView extends StatelessWidget {
   final int slider;
-  final OnboardingController controller;
   final String image;
 
   const OnboardingView({
     super.key,
     required this.slider,
-    required this.controller,
     required this.image,
   });
 
@@ -90,32 +87,7 @@ class OnboardingView extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 45,
-            ),
-            SizedBox(
-              height: 60,
-              width: double.infinity,
-              child: ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(ConstColors.blackColor),
-                  foregroundColor:
-                      MaterialStateProperty.all<Color>(ConstColors.whiteColor),
-                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0))),
-                ),
-                onPressed: () {
-                  controller.nextPage();
-                },
-                child: Text(
-                  "Continue",
-                  style: pRegular14.copyWith(
-                      fontSize: 16, color: ConstColors.whiteColor),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 30,
+              height: 135,
             ),
           ],
         ));

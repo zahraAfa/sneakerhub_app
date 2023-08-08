@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:sneakerhub_app/src/constants/images.dart';
+import 'package:sneakerhub_app/src/routes/route_name.dart';
 
 class OnboardingController extends GetxController {
   RxInt pageIndex = 0.obs;
   final int maxPage = 3;
-  late PageController pageController = PageController();
+  late LiquidController liquidController = LiquidController();
 
   final List<String> images = [
     DefaultImages.o1,
@@ -15,13 +17,21 @@ class OnboardingController extends GetxController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
-    pageController = PageController(initialPage: 0);
+    liquidController = LiquidController();
   }
 
   void nextPage() {
-    pageController.nextPage(
-        duration: Duration(milliseconds: 200), curve: Curves.easeIn);
+    print(liquidController.currentPage);
+    // while (liquidController.currentPage < maxPage) {
+    //   liquidController.animateToPage(page: liquidController.currentPage + 1);
+    // }
+    // Get.toNamed(RouteName.welcome);
+
+    if (liquidController.currentPage < maxPage - 1) {
+      liquidController.animateToPage(page: liquidController.currentPage + 1);
+    } else {
+      Get.toNamed(RouteName.welcome);
+    }
   }
 }

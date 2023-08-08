@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:sneakerhub_app/src/utils/text_field_theme.dart';
 
 import 'src/routes/page_route.dart';
 
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Health Monitoring App',
+      title: 'Sneaker Hub',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: const MaterialColor(
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
             900: Color(0xff2A2A2A),
           },
         ),
+        inputDecorationTheme: CustomTextFieldTheme.inputDecorationTheme,
       ),
       getPages: AppPage.pages,
     );
